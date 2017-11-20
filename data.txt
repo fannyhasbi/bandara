@@ -1,0 +1,28 @@
+Airasia
+  Airbus A320-200 (180)
+
+Airfast
+  Vikingair DHC6-300 Twin Otter (20)
+
+Batik Air
+  Airbus A320-200 (180)
+  Boeing 737-800 (189)
+  Boeing 737-900ER (220)
+
+Citilink
+  Boeing 737-300 (149)
+  Boeing 737-500 (140)
+
+Garuda Indonesia
+  Boeing 737-800 (189)
+  Airbus A330-243 (253)
+
+Lion Air
+  Boeing 737-900ER (220)
+  Airbus A330-300 (295)
+  Boeing 737-800 (189)
+
+Sriwijaya Air
+  Boeing 737-300 (149)
+  Boeing 737-500 (140)
+  Boeing 737-800 (189)
