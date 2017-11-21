@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 21, 2017 at 02:16 
+-- Generation Time: Nov 21, 2017 at 09:50 
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -60,8 +60,15 @@ CREATE TABLE `landing` (
   `asal` varchar(4) NOT NULL,
   `waktu` datetime NOT NULL,
   `kode_pesawat` varchar(5) NOT NULL,
-  `jml_penumpang` int(4) NOT NULL
+  `penumpang` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `landing`
+--
+
+INSERT INTO `landing` (`id_lnd`, `asal`, `waktu`, `kode_pesawat`, `penumpang`) VALUES
+(1, 'K001', '2017-07-21 11:00:00', 'PKOCH', 20);
 
 -- --------------------------------------------------------
 
@@ -159,8 +166,16 @@ CREATE TABLE `takeoff` (
   `tujuan` varchar(4) NOT NULL,
   `waktu` datetime NOT NULL,
   `kode_pesawat` varchar(5) NOT NULL,
-  `jml_penumpang` int(4) NOT NULL
+  `penumpang` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `takeoff`
+--
+
+INSERT INTO `takeoff` (`id_to`, `tujuan`, `waktu`, `kode_pesawat`, `penumpang`) VALUES
+(1, 'K001', '2017-07-21 10:00:00', 'PKOCF', 20),
+(2, 'K001', '2017-07-21 12:00:00', 'PKOCG', 20);
 
 --
 -- Indexes for dumped tables
@@ -216,12 +231,12 @@ ALTER TABLE `takeoff`
 -- AUTO_INCREMENT for table `landing`
 --
 ALTER TABLE `landing`
-  MODIFY `id_lnd` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_lnd` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `takeoff`
 --
 ALTER TABLE `takeoff`
-  MODIFY `id_to` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_to` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --
