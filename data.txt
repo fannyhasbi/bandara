@@ -1,28 +1,28 @@
 Airasia
-  Airbus A320-200 (180)
+  Airbus A320-200 (180) - Airbus, Perancis
 
 Airfast
-  Vikingair DHC6-300 Twin Otter (20)
+  Vikingair DHC6-300 Twin Otter (20) - Viking Air, Kanada
 
 Batik Air
-  Airbus A320-200 (180)
-  Boeing 737-800 (189)
-  Boeing 737-900ER (220)
+  Airbus A320-200 (180) - Airbus, Blagnac
+  Boeing 737-800 (189) - Boeing, Amerika Serikat
+  Boeing 737-900ER (220) - Boeing, Amerika Serikat
 
 Citilink
-  Boeing 737-300 (149)
-  Boeing 737-500 (140)
+  Boeing 737-300 (149) - Boeing, Amerika Serikat
+  Boeing 737-500 (140) - Boeing, Amerika Serikat
 
 Garuda Indonesia
-  Boeing 737-800 (189)
-  Airbus A330-243 (253)
+  Boeing 737-800 (189) - Boeing, Amerika Serikat
+  Airbus A330-243 (253) - Airbus, Perancis
 
 Lion Air
-  Boeing 737-900ER (220)
-  Airbus A330-300 (295)
-  Boeing 737-800 (189)
+  Boeing 737-900ER (220) - Boeing, Amerika Serikat
+  Airbus A330-300 (295) - Airbus, Perancis
+  Boeing 737-800 (189) - Boeing, Amerika Serikat
 
 Sriwijaya Air
-  Boeing 737-300 (149)
-  Boeing 737-500 (140)
-  Boeing 737-800 (189)
+  Boeing 737-300 (149) - Boeing, Amerika Serikat
+  Boeing 737-500 (140) - Boeing, Amerika Serikat
+  Boeing 737-800 (189) - Boeing, Amerika Serikat
