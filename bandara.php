@@ -40,10 +40,10 @@
 
   <?php
     }
-    session_unset('del');
-    session_unset('del_key');
-    session_unset('del_res');
-    session_unset('del_data');
+    unset($_SESSION['del']);
+    unset($_SESSION['del_key']);
+    unset($_SESSION['del_res']);
+    unset($_SESSION['del_data']);
   }
   ?>
   <table class="table table-bordered table-hover">

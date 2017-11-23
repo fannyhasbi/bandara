@@ -59,7 +59,7 @@ $ro = mysqli_fetch_assoc(mysqli_query($con, $qu));
       <?php } ?>
 
       <div class="form-group">
-        <label for="tujuan">Tujuan</label>
+        <label for="tujuan">Asal</label>
         <select name="tujuan" class="form-control" required>
           <?php
           $q = "SELECT * FROM bandara";
