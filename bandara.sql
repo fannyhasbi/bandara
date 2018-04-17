@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 21, 2017 at 09:50 
+-- Generation Time: Apr 17, 2018 at 06:44 
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -19,6 +19,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `bandara`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id_admin` int(4) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `nama` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id_admin`, `username`, `password`, `nama`) VALUES
+(1, 'fannyhasbi', '$2y$10$f9Js4biuGS2Uo4/8c1NiL.csEle2tAHrvqBk2VhBo0u7i7OFxrnMG', 'Fanny Hasbi');
 
 -- --------------------------------------------------------
 
@@ -40,14 +60,13 @@ CREATE TABLE `bandara` (
 INSERT INTO `bandara` (`kode_bandara`, `nama`, `kota`, `negara`) VALUES
 ('B000', 'Bandar Udara Internasional Ngurah Rai', 'Bali', 'Indonesia'),
 ('B001', 'Bandar Udara Internasional Sultan Aji Muhammad Sulaiman', 'Balikpapan', 'Indonesia'),
+('G020', 'Bandar Udara Brebes', 'Brebes', 'Jerman'),
 ('J000', 'Bandar Udara Internasional Soekarno-Hatta', 'Jakarta', 'Indonesia'),
 ('J001', 'Bandar Udara Internasional Halim Perdanakusuma', 'Jakarta', 'Indonesia'),
-('K000', 'Bandar Udara Internasional Kuala Lumpur', 'Kuala Lumpur', 'Malaysia'),
+('K000', 'Bandar Udara Internasional Kuala Lumpur', 'Kuala Lumpur', 'Jerman'),
 ('K001', 'Bandar Udara Dewadaru', 'Jepara', 'Indonesia'),
 ('K002', 'Bandar Udara Rahadi Oesman', 'Ketapang', 'Indonesia'),
-('P000', 'Bandar Udara Supadio', 'Pontianak', 'Indonesia'),
-('P001', 'Bandar Udara Iskandar', 'Pangkalanbun', 'Indonesia'),
-('S000', 'Bandar Udara Internasional Juanda', 'Surabaya', 'Indonesia');
+('P001', 'Bandar Udara Iskandar', 'Pangkalanbun', 'Indonesia');
 
 -- --------------------------------------------------------
 
@@ -68,7 +87,9 @@ CREATE TABLE `landing` (
 --
 
 INSERT INTO `landing` (`id_lnd`, `asal`, `waktu`, `kode_pesawat`, `penumpang`) VALUES
-(1, 'K001', '2017-07-21 11:00:00', 'PKOCH', 20);
+(2, 'B001', '2017-11-08 03:22:00', 'PKCJC', 97),
+(3, 'P001', '2017-11-23 08:16:00', 'PKLGQ', 143),
+(4, 'B001', '2017-11-23 10:19:00', 'PKCJC', 130);
 
 -- --------------------------------------------------------
 
@@ -144,14 +165,9 @@ INSERT INTO `pesawat` (`kode_pesawat`, `nama`, `kapasitas`, `kode_maskapai`, `ko
 ('PKGLX', 'Boeing 737-500', 140, 'C001', '0A03'),
 ('PKGSI', 'Boeing 737-800', 189, 'G001', '0A03'),
 ('PKGSJ', 'Boeing 737-800', 189, 'G001', '0A03'),
-('PKLAG', 'Airbus A320-200', 180, 'B001', '0A01'),
-('PKLAH', 'Boeing 737-800', 189, 'B001', '0A03'),
-('PKLAI', 'Boeing 737-900ER', 220, 'B001', '0A03'),
 ('PKLGO', 'Boeing 737-900ER', 220, 'L001', '0A03'),
 ('PKLGP', 'Airbus A330-300', 295, 'L001', '0A01'),
 ('PKLGQ', 'Boeing 737-800', 189, 'L001', '0A03'),
-('PKOCF', 'Vikingair DHC6-300 Twin Otter', 20, 'A002', '0A02'),
-('PKOCG', 'Vikingair DHC6-300 Twin Otter', 20, 'A002', '0A02'),
 ('PKOCH', 'Vikingair DHC6-300 Twin Otter', 20, 'A002', '0A02'),
 ('PXAXO', 'Airbus A320-200', 180, 'A001', '0A01');
 
@@ -174,12 +190,89 @@ CREATE TABLE `takeoff` (
 --
 
 INSERT INTO `takeoff` (`id_to`, `tujuan`, `waktu`, `kode_pesawat`, `penumpang`) VALUES
-(1, 'K001', '2017-07-21 10:00:00', 'PKOCF', 20),
-(2, 'K001', '2017-07-21 12:00:00', 'PKOCG', 20);
+(3, 'B000', '2017-11-23 09:30:00', 'PXAXO', 333),
+(5, 'B000', '2017-11-23 09:34:00', 'PXAXO', 332),
+(6, 'K001', '2017-11-01 06:22:00', 'PKGSI', 30);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `v_landing`
+-- (See below for the actual view)
+--
+CREATE TABLE `v_landing` (
+`id_lnd` int(5)
+,`kode_pesawat` varchar(5)
+,`pesawat` varchar(203)
+,`asal` varchar(152)
+,`penumpang` int(4)
+,`waktu` varchar(50)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `v_pesawat`
+-- (See below for the actual view)
+--
+CREATE TABLE `v_pesawat` (
+`kode` varchar(5)
+,`nama` varchar(100)
+,`maskapai` varchar(100)
+,`singgah` bigint(22)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `v_takeoff`
+-- (See below for the actual view)
+--
+CREATE TABLE `v_takeoff` (
+`id_to` int(5)
+,`kode_pesawat` varchar(5)
+,`pesawat` varchar(203)
+,`tujuan` varchar(152)
+,`penumpang` int(4)
+,`waktu` varchar(50)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `v_landing`
+--
+DROP TABLE IF EXISTS `v_landing`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_landing`  AS  select `l`.`id_lnd` AS `id_lnd`,`p`.`kode_pesawat` AS `kode_pesawat`,concat((select `m`.`nama` AS `nama_maskapai` from `maskapai` `m` where (`m`.`kode_maskapai` = `p`.`kode_maskapai`)),' - ',`p`.`nama`) AS `pesawat`,concat(`b`.`nama`,', ',`b`.`kota`) AS `asal`,`l`.`penumpang` AS `penumpang`,date_format(`l`.`waktu`,'%e %b \'%y %H:%i') AS `waktu` from ((`landing` `l` join `pesawat` `p` on((`l`.`kode_pesawat` = `p`.`kode_pesawat`))) join `bandara` `b` on((`l`.`asal` = `b`.`kode_bandara`))) order by `l`.`id_lnd` desc ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `v_pesawat`
+--
+DROP TABLE IF EXISTS `v_pesawat`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_pesawat`  AS  select `p`.`kode_pesawat` AS `kode`,`p`.`nama` AS `nama`,`m`.`nama` AS `maskapai`,((select count(`takeoff`.`id_to`) from `takeoff` where (`takeoff`.`kode_pesawat` = `kode`)) + (select count(`landing`.`id_lnd`) from `landing` where (`landing`.`kode_pesawat` = `kode`))) AS `singgah` from (`pesawat` `p` join `maskapai` `m` on((`p`.`kode_maskapai` = `m`.`kode_maskapai`))) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `v_takeoff`
+--
+DROP TABLE IF EXISTS `v_takeoff`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_takeoff`  AS  select `t`.`id_to` AS `id_to`,`p`.`kode_pesawat` AS `kode_pesawat`,concat((select `m`.`nama` AS `nama_maskapai` from `maskapai` `m` where (`m`.`kode_maskapai` = `p`.`kode_maskapai`)),' - ',`p`.`nama`) AS `pesawat`,concat(`b`.`nama`,', ',`b`.`kota`) AS `tujuan`,`t`.`penumpang` AS `penumpang`,date_format(`t`.`waktu`,'%e %b \'%y %H:%i') AS `waktu` from ((`takeoff` `t` join `pesawat` `p` on((`t`.`kode_pesawat` = `p`.`kode_pesawat`))) join `bandara` `b` on((`t`.`tujuan` = `b`.`kode_bandara`))) order by `t`.`id_to` desc ;
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id_admin`);
 
 --
 -- Indexes for table `bandara`
@@ -228,15 +321,20 @@ ALTER TABLE `takeoff`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id_admin` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `landing`
 --
 ALTER TABLE `landing`
-  MODIFY `id_lnd` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_lnd` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `takeoff`
 --
 ALTER TABLE `takeoff`
-  MODIFY `id_to` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_to` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- Constraints for dumped tables
 --

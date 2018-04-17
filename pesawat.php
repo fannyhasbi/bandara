@@ -1,6 +1,5 @@
-<?php include "view/header.php";
-
-var_dump($_SESSION['login']);
+<?php
+include "view/header.php";
 ?>
 
 <div class="jumbotron text-center">
@@ -81,7 +80,7 @@ var_dump($_SESSION['login']);
 
     $h = mysqli_query($con, $q);
 
-    while($r = mysqli_fetch_assoc($h)):
+    while($r = mysqli_fetch_assoc($h)){
     ?>
       <tr>
         <td><?= substr($r['kode'], 0, 2) . '-' . substr($r['kode'], 2);?></td>
@@ -96,7 +95,7 @@ var_dump($_SESSION['login']);
         <?php endif; ?>
       </tr>
     <?php
-    endwhile;
+    }
     ?>
 
     </tbody>
